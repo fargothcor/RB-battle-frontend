@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import {Router, Route } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
+import './index.css';
+import board from './components/board/board'
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const history = require("history").createBrowserHistory()
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+ReactDOM.render((
+    <Router history={history}>
+        <div>
+            <Route exact path="/" component={board}/>
+        </div>
+    </Router>
+
+), document.getElementById('root'));
+
 serviceWorker.unregister();
